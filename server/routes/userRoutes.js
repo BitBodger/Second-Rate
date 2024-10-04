@@ -1,9 +1,13 @@
-const express = require('express');
+import express from 'express';
+import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
+import User from '../models/user.js'; // Import the User model
+import dotenv from 'dotenv';
+
+dotenv.config();
+
 const router = express.Router();
-const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
-const User = require('@/models/user'); // Import the User model
-require('dotenv').config();
+
 
 // Use the JWT secret from the environment variables
 const JWT_SECRET = process.env.JWT_SECRET;
@@ -79,4 +83,4 @@ router.post('/auth/login', async (req, res) => {
   }
 });
 
-module.exports = router;
+export default router;

@@ -1,7 +1,10 @@
 {
   "name": "second-rate-client",
   "version": "0.1.0",
+  "description": "Frontend for second-rate social rating app",
+  "author": "BitBodger",
   "private": true,
+  "type": "module",
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

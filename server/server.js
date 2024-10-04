@@ -1,10 +1,11 @@
-const express = require('express');
-const mongoose = require('mongoose');
-require('module-alias/register');
-const userRoutes = require('@/routes/userRoutes');
-const path = require('path');
-const jwt = require('jsonwebtoken');  // Import JWT for authentication
-require('dotenv').config();
+import express from 'express';
+import mongoose from 'mongoose';
+import 'module-alias/register.js'; // Importing module alias
+import userRoutes from './routes/userRoutes.js';
+import path from 'path';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;

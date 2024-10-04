@@ -1,5 +1,5 @@
 // /models/user.js
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 // Define the User schema
 const userSchema = new mongoose.Schema({
@@ -32,4 +32,4 @@ const userSchema = new mongoose.Schema({
 
 // Create and export the User model
 const User = mongoose.model('User', userSchema);
-module.exports = User;
+export default userSchema;
