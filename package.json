@@ -1,0 +1,17 @@
+{
+  "name": "second-rate",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "concurrently --kill-others --raw \"npm --prefix client start\" \"npm --prefix server start\"",
+    "dev": "concurrently --kill-others --raw \"npm --prefix client start\" \"npm --prefix server run dev\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "concurrently": "^9.0.1"
+  }
+}
