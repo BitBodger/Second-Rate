@@ -7,7 +7,7 @@ const UserList = ({ users }) => {
       <ul>
         {users.map(user => (
           <li key={user._id}>
-            {user.name} - {user.email}
+            {user.username} - {user.email}
           </li>
         ))}
       </ul>

@@ -1,35 +1,33 @@
-// /models/user.js
-import mongoose from 'mongoose';
-
-// Define the User schema
-const userSchema = new mongoose.Schema({
-    name: {
-        type: String,
-        required: true,
-        trim: true
-    },
-    username: {
-        type: String, 
-        required: true, 
-        unique: true 
-    }, 
-    email: {
-        type: String,
-        required: true,
-        unique: true,
-        trim: true,
-        lowercase: true
-    },
-    password: {
-        type: String,
-        required: true
-    },
-    createdAt: {
-        type: Date,
-        default: Date.now
-    }
-});
-
-// Create and export the User model
-const User = mongoose.model('User', userSchema);
-export default userSchema;
+// Function to create a new user
+export const createUser = async (pool, { username, email, password }) => {
+    const res = await pool.query(
+      'INSERT INTO users (username, email, password) VALUES ($1, $2, $3) RETURNING *',
+      [username, email, password]
+    );
+    return res.rows[0];
+  };
+  
+  // Function to find a user by email or username
+  export const findUserByEmailOrUsername = async (pool, email, username) => {
+    const res = await pool.query(
+      'SELECT * FROM users WHERE email = $1 OR username = $2',
+      [email, username]
+    );
+    return res.rows[0]; // Return the first user found or undefined
+  };
+  
+  // Function to find a user by email
+  export const findUserByEmail = async (pool, email) => {
+    const res = await pool.query(
+      'SELECT * FROM users WHERE email = $1',
+      [email]
+    );
+    return res.rows[0]; // Return the first user found or undefined
+  };
+  
+  // Function to get all users
+  export const getAllUsers = async (pool) => {
+    const res = await pool.query('SELECT * FROM users');
+    return res.rows; // Return all users
+  };
+  

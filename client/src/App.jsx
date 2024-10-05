@@ -7,6 +7,7 @@ import Navbar from './components/navigation/Navbar.jsx';
 import Footer from './components/layout/Footer.jsx';
 import RegisterPage from './pages/RegisterPage.jsx';
 import AboutPage from './pages/AboutPage';
+import FilmDetail from './components/layout/FilmDetail';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/about" element={<AboutPage />} />
+        <Route path="/films/:filmId" element={<FilmDetail />} />
       </Routes>
       <Footer />
     </Router>

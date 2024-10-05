@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const RegisterPage = () => {
-  const [name, setName] = useState('');
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -17,10 +16,10 @@ const RegisterPage = () => {
     setSuccess(null); // Reset success message
 
     // Prepare the data to send to the backend
-    const payload = { name, username, email, password };
+    const payload = { username, email, password };
 
     try {
-      const response = await fetch('/api/auth/register', {
+      const response = await fetch('/api/users/auth/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -49,15 +48,6 @@ const RegisterPage = () => {
       {error && <p style={{ color: 'red' }}>{error}</p>}
       {success && <p style={{ color: 'green' }}>{success}</p>}
       <form onSubmit={handleSubmit}>
-        <div>
-          <label>Name:</label>
-          <input
-            type="text"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            required
-          />
-        </div>
         <div>
           <label>Username:</label>
           <input

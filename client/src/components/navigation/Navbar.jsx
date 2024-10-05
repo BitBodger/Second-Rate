@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import FilmSearch from '../forms/FilmSearch.jsx';
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -33,6 +34,9 @@ const Navbar = () => {
           </li>
         )}
       </ul>
+      <div>
+        <FilmSearch />
+      </div>
     </nav>
   );
 };
