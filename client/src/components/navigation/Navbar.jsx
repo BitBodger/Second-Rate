@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import FilmSearch from '../forms/FilmSearch.jsx';
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -18,24 +17,21 @@ const Navbar = () => {
   };
 
   return (
-    <nav>
-      <ul>
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/users">Users</Link></li>
-
+    <nav className="navbar">
+      <div className="navbar-left">
+        <ul className="navbar-links">
+          <li><Link to="/">✪SECOND-RATE✪</Link></li>
+          <li><Link to="/users">Users</Link></li>
+        </ul>  
+      </div>
+      
+      <div className="navbar-right">
         {/* Conditionally render the Login or Logout link based on login status */}
         {isLoggedIn ? (
-          <li>
-            <button onClick={handleLogout}>Logout</button>
-          </li>
+          <button onClick={handleLogout}>Logout</button>
         ) : (
-          <li>
-            <Link to="/login">Login</Link>
-          </li>
+          <Link to="/login">Login</Link>
         )}
-      </ul>
-      <div>
-        <FilmSearch />
       </div>
     </nav>
   );

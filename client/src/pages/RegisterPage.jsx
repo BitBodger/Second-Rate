@@ -43,7 +43,7 @@ const RegisterPage = () => {
   };
 
   return (
-    <div>
+    <div className="form-container">
       <h2>Register</h2>
       {error && <p style={{ color: 'red' }}>{error}</p>}
       {success && <p style={{ color: 'green' }}>{success}</p>}

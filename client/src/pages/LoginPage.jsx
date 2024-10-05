@@ -38,7 +38,7 @@ const LoginPage = () => {
   };
 
   return (
-    <div>
+    <div className="form-container">
       <h2>Login</h2>
       <form onSubmit={handleSubmit}>
         <div>
@@ -60,9 +60,11 @@ const LoginPage = () => {
           />
         </div>
         <button type="submit">Login</button>
-        <Link to="/register">
+        <div>
+          <Link to="/register">
             Register here
-        </Link>
+          </Link>
+        </div>
       </form>
       {error && <p style={{ color: 'red' }}>{error}</p>}
     </div>

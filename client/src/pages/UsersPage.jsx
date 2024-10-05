@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import UserList from '@/components/users/UserList';
+import UserList from '../components/users/UserList';
 
 const UsersPage = () => {
   const [users, setUsers] = useState([]);
