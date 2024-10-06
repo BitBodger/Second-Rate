@@ -12,15 +12,19 @@ import FilmDetail from './components/layout/FilmDetail';
 function App() {
   return (
     <Router>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/users" element={<UsersPage />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/register" element={<RegisterPage />} />
-        <Route path="/about" element={<AboutPage />} />
-        <Route path="/films/:filmId" element={<FilmDetail />} />
-      </Routes>
+      <div className="content-wrapper">
+        <Navbar />
+        <div className="container">
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/users" element={<UsersPage />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/register" element={<RegisterPage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/films/:filmId" element={<FilmDetail />} />
+          </Routes>
+        </div>
+      </div>
       <Footer />
     </Router>
   );

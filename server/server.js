@@ -1,5 +1,4 @@
 import express from 'express';
-import pool from './db.js';  // Import the pool from db.js
 import userRoutes from './routes/userRoutes.js';
 import filmRoutes from './routes/filmRoutes.js';
 import path from 'path';
@@ -15,8 +14,8 @@ const JWT_SECRET = process.env.JWT_SECRET;
 app.use(express.json());
 
 // API routes
-app.use('/api/users', userRoutes(pool));  // Pass pool instance to user routes
-app.use('/api/films', filmRoutes(pool));
+app.use('/api/users', userRoutes);  // Pass pool instance to user routes
+app.use('/api/films', filmRoutes);
 
 // Serve the frontend React app
 if (process.env.NODE_ENV === 'production') {

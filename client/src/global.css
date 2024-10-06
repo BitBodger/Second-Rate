@@ -1,43 +1,38 @@
-/* General Page Styles */
-body {
+/* Ensure the body and html take full height */
+html, body {
+  height: 100%;
+  min-height: 100vh;
+  margin: 0;
+  font-family: Arial, sans-serif;
   background-color: #111; /* Dark background */
   color: #fff; /* White text */
-  font-family: Arial, sans-serif;
-  margin: 0;
-  height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
 }
 
-html, body {
-  height: 100%; /* Ensure full height for footer positioning */
-}
-
-nav {
+/* Wrapper for all content except footer */
+.content-wrapper {
+  flex: 1; /* Take available space */
   display: flex;
-  justify-content: space-between;
-  width: 100%;
-  background-color: #333; /* Dark background for navbar */
+  flex-direction: column;
+  justify-content: center; /* Center vertically if no content */
 }
 
-/* Container for each page to center content */
+/* Main content container should take all available space */
 .container {
+  flex: 1; /* Grow to fill available space */
   max-width: 1200px;
   width: 100%;
-  margin: 0 auto;
   padding: 20px;
-  flex: 1;
+  margin: 0 auto;
 }
 
-/* Navbar Styles */
+/* Navbar and Footer Styles */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #333;
+  background-color: #333; /* Dark background */
   padding: 10px 20px;
   width: 100%;
   position: fixed;
@@ -82,7 +77,7 @@ nav {
 
 .navbar-links a:visited,
 .navbar-right a:visited {
-  color: white;
+  color: white; /* Ensure visited links have the same color as unvisited */
 }
 
 button {
@@ -108,16 +103,16 @@ button:hover {
   }
 }
 
-/* Footer Styling */
+/* Footer styling */
 footer {
   background-color: #222;
   padding: 10px;
   text-align: center;
   color: #fff;
-  width: 100%;
-  position: relative;
-  box-sizing: border-box;
-  margin-top: auto; /* Ensures footer is pushed to the bottom */
+  width: 100%; /* Full width */
+  box-sizing: border-box; /* Ensure padding is inside the width */
+  margin-top: auto; /* Push footer to the bottom */
+  position: relative; /* Not fixed anymore */
 }
 
 /* Search Bar Styling */
@@ -140,14 +135,9 @@ footer {
   padding: 10px;
   font-size: 1.2em;
   border-radius: 5px;
-  cursor: pointer;
 }
 
-.search-bar button:hover {
-  background-color: rgb(235, 221, 36);
-}
-
-/* Form Styling (Login/Register) */
+/* Login Form Styling */
 .form-container {
   max-width: 400px;
   margin: 50px auto;
@@ -195,9 +185,9 @@ footer {
 }
 
 .form-container a {
-  color: rgb(235, 221, 36);
+  color: rgb(235, 221, 36); /* Link color */
   text-align: center;
-  display: block;
+  display: block; /* Center the link */
   margin-top: 10px;
 }
 

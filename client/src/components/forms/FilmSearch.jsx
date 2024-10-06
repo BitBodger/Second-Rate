@@ -22,6 +22,9 @@ const FilmSearch = () => {
 
       if (!response.ok) {
         setError(data.message || 'Error searching for films');
+      } else if (data.length === 0) {
+        setError('No films found.');  // Add case for empty results
+        setFilms([]); // Clear the films list
       } else {
         setFilms(data); // Sets the return films in state
       }
@@ -49,8 +52,12 @@ const FilmSearch = () => {
       {loading && <p>Loading...</p>}  {/* Display loading state */}
       {error && <p style={{ color: 'red' }}>{error}</p>}  {/* Display error if any */}
 
+      {!loading && !error && films.length === 0 && (
+        <p>No films found. Try searching for a different title.</p>  // Show message if no films
+      )}
+
       <ul className="film-list">
-        {films.map( (film) => (
+        {films.map((film) => (
           <li key={film.id} className="film-item">
             <Link to={`/films/${film.id}`}>
               <strong>{film.title}</strong> ({film.release_date})

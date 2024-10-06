@@ -3,13 +3,12 @@ import { registerUser, loginUser, getAllUsers } from '../controllers/userControl
 
 const router = express.Router();
 
-// Register routes with pool reference
-const userRoutes = (pool) => {
-  router.post('/auth/register', registerUser(pool));
-  router.get('/', getAllUsers(pool));
-  router.post('/auth/login', loginUser(pool));
+const userRoutes = () => {
+  router.post('/auth/register', registerUser); // Do not call the function
+  router.get('/', getAllUsers); // Just pass the function reference
+  router.post('/auth/login', loginUser); // Do not call the function
 
   return router;
 };
 
-export default userRoutes;
+export default userRoutes

@@ -1,15 +1,15 @@
 import express from 'express';
-import { searchFilms, getFilmDetails } from '../controllers/filmController.js';  // Import the film controller functions
+import { getFilmDetailsWithRatings, searchFilms } from '../controllers/filmController.js';
 
 const router = express.Router();
 
 const filmRoutes = () => {
 
-  // Route for searching film database
-  router.get('/search', searchFilms);  // No need for pool here, searchFilms doesn't use it
-
-  // Route for fetching a film by its ID
-  router.get('/:filmId', getFilmDetails);  // Ensure getFilmDetails is imported and defined
+  // Route for 
+  router.get('/search', searchFilms); // GET /api/films/search
+  
+  // Route for getting details about a film
+  router.get('/:filmId', getFilmDetailsWithRatings); // GET /api/films/:filmId
 
   return router;
 };

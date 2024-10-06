@@ -19,10 +19,10 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="navbar-left">
-        <ul className="navbar-links">
-          <li><Link to="/">✪SECOND-RATE✪</Link></li>
-          <li><Link to="/users">Users</Link></li>
-        </ul>  
+        <div className="navbar-links">
+          <Link to="/">✪SECOND-RATE✪</Link>
+          <Link to="/users">Users</Link>
+        </div>  
       </div>
       
       <div className="navbar-right">
